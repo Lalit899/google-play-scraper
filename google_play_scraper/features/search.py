@@ -39,8 +39,11 @@ def search(
 
     try:
         top_result = dataset["ds:4"][0][1][0][23][16]
-    except IndexError:
-        top_result = None
+    except:
+        try:
+            top_result = dataset["ds:3"][0][1][0][23][16]
+        except (IndexError, KeyError, TypeError):
+            top_result = None
 
     success = False
     # different idx for different countries and languages
